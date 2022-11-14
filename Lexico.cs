@@ -8,7 +8,6 @@ namespace Semantica
     {
         protected StreamReader archivo;
         protected StreamWriter log;
-        protected StreamWriter asm;
         const int F = -1;
         const int E = -2;
         long contador = 0;
@@ -76,28 +75,28 @@ namespace Semantica
             if(windows)
             {
                 path = "C:\\Users\\gabri\\OneDrive\\Documents\\ITQ\\Materias\\Lenguajes y Automatas II\\Semantica\\prueba.cpp";
-                asm = new StreamWriter("C:\\Users\\gabri\\OneDrive\\Documents\\ITQ\\Materias\\Lenguajes y Automatas II\\Semantica\\prueba.asm");
+                ////asm = new StreamWriter("C:\\Users\\gabri\\OneDrive\\Documents\\ITQ\\Materias\\Lenguajes y Automatas II\\Semantica\\prueba.//asm");
                 log = new StreamWriter("C:\\Users\\gabri\\OneDrive\\Documents\\ITQ\\Materias\\Lenguajes y Automatas II\\Semantica\\prueba.Log");
             }
             else
             {
                 path = "/workspace/Semantica/prueba.cpp";
                 log = new StreamWriter("/workspace/Semantica/prueba.Log");
-                asm = new StreamWriter("/workspace/Semantica/prueba.asm");
+                ////asm = new StreamWriter("/workspace/Semantica/prueba.//asm");
 
             }
             //string path = "C:\\Users\\gabri\\OneDrive\\Documents\\ITQ\\Materias\\Lenguajes y Automatas II\\Semantica\\prueba.cpp";
             bool existencia = File.Exists(path);
             //log = new StreamWriter("C:\\Users\\gabri\\OneDrive\\Documents\\ITQ\\Materias\\Lenguajes y Automatas II\\Semantica\\prueba.Log");
             log.AutoFlush = true;
-            //asm = new StreamWriter("C:\\Users\\gabri\\OneDrive\\Documents\\ITQ\\Materias\\Lenguajes y Automatas II\\Semantica\\prueba.asm");
-            asm.AutoFlush = true;
+            ////asm = new StreamWriter("C:\\Users\\gabri\\OneDrive\\Documents\\ITQ\\Materias\\Lenguajes y Automatas II\\Semantica\\prueba.//asm");
+            ////asm.AutoFlush = true;
             //log.WriteLine("Primer constructor");
             log.WriteLine("Archivo: prueba.cpp");
             log.WriteLine(DateTime.Now);
 
-            asm.WriteLine(";Archivo: prueba.asm");
-            asm.WriteLine(";fecha: " + DateTime.Now);
+            ////asm.WriteLine(";Archivo: prueba.//asm");
+            ////asm.WriteLine(";fecha: " + DateTime.Now);
             //Investigar como checar si un archivo existe o no existe 
             if (existencia == true)
             {
@@ -114,15 +113,15 @@ namespace Semantica
             string pathLog = Path.ChangeExtension(nombre, ".log");
             log = new StreamWriter(pathLog); 
             log.AutoFlush = true;
-            string pathAsm = Path.ChangeExtension(nombre, ".asm");
-            asm = new StreamWriter(pathAsm);
-            asm.AutoFlush = true;
+            //string path//asm = Path.ChangeExtension(nombre, ".//asm");
+            //asm = new StreamWriter(path//asm);
+            ////asm.AutoFlush = true;
             //log.WriteLine("Segundo constructor");
             log.WriteLine("Archivo: "+nombre);
             log.WriteLine("fecha: "+ DateTime.Now);
 
-            asm.WriteLine(";Archivo: "+ nombre);
-            asm.WriteLine(";feccha: " + DateTime.Now);
+            ////asm.WriteLine(";Archivo: "+ nombre);
+            ////asm.WriteLine(";feccha: " + DateTime.Now);
             if (File.Exists(nombre))
             {
                 archivo = new StreamReader(nombre);
@@ -136,7 +135,7 @@ namespace Semantica
         {
             archivo.Close();
             log.Close();
-            asm.Close();
+            ////asm.Close();
         }       
 
         private void clasifica(int estado)
